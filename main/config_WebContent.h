@@ -30,10 +30,18 @@
 
 // TODO: Create a script to generate these from WebPack
 
+#define RO
+
+#ifdef RO
+#define body_footer_main_menu   "<div id=but2d style=\"display: block;\"></div><p><form id=but2 style=\"display: block;\" action='.' method='get'><button>Meniu principal</button></form></p>"
+#define body_footer_config_menu "<div id=but3d style=\"display: block;\"></div><p><form id=but3 style=\"display: block;\" action='cn' method='get'><button>Configurare</button></form></p>"
+#define body_header             "<body><div style='text-align:left;display:inline-block;min-width:360px;'><div style='text-align:center;'><noscript> Pentru a utiliza, vă rugăm să activați JavaScript <br></noscript><h3>%s</h3><h2>%s</h2></div>"
+#else
 #define body_footer_main_menu   "<div id=but2d style=\"display: block;\"></div><p><form id=but2 style=\"display: block;\" action='.' method='get'><button>Main Menu</button></form></p>"
 #define body_footer_config_menu "<div id=but3d style=\"display: block;\"></div><p><form id=but3 style=\"display: block;\" action='cn' method='get'><button>Configuration</button></form></p>"
 #define body_header             "<body><div style='text-align:left;display:inline-block;min-width:360px;'><div style='text-align:center;'><noscript> To use, please enable JavaScript <br></noscript><h3>%s</h3><h2>%s</h2></div>"
 
+#endif
 #if defined(ESP32) && defined(MQTT_HTTPS_FW_UPDATE)
 #  define button_upgrade "<p><form id=but5 style='display: block;' action='up' method='get'><button>Firmware Upgrade</button></form></p>"
 #else
